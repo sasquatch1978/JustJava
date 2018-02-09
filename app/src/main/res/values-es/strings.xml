@@ -27,11 +27,11 @@
     <!-- Hint text display in the empty field for the user's name [CHAR LIMIT=20] -->
     <string name="name">Nombre</string>
     <!-- Chocolate price [CHAR LIMIT=20] -->
-    <string name="chocPrice">1,25 €/Taza</string>
+    <string name="chocPrice">1,25 €</string>
     <!-- Whipped cream price [CHAR LIMIT=20] -->
-    <string name="whipPrice">0,75 €/Taza</string>
+    <string name="whipPrice">0,75 €</string>
     <!-- Coffee price [CHAR LIMIT=20] -->
-    <string name="coffeePrice">2,50 €/Taza</string>
+    <string name="coffeePrice">2,50 €</string>
 
     <!-- Java Strings -->
     <!-- Whipped cream topping for the order summary. It will be shown in the format of "Add whipped cream? Yes" or "Add whipped cream? No". [CHAR LIMIT=NONE] -->

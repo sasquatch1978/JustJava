@@ -9,5 +9,6 @@
     <dimen name="orderButton">100dp</dimen>
     <dimen name="buttonRadius">2dp</dimen>
     <dimen name="titleSize">16sp</dimen>
+    <dimen name="priceSize">14sp</dimen>
     <dimen name="buttonText">20sp</dimen>
 </resources>
