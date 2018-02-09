@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Title for the application. [CHAR LIMIT=12] -->
+    <string name="app_name">Sólo Java</string>
+
+    <!-- Xml Strings -->
+    <!-- Quantity title [CHAR LIMIT=20] -->
+    <string name="title">Café</string>
+    <!-- Initial quantity [CHAR LIMIT=5] -->
+    <string name="quantity">0</string>
+    <!-- Order button [CHAR LIMIT=20] -->
+    <string name="order">Ordenar</string>
+    <!-- Subtotal title [CHAR LIMIT=20] -->
+    <string name="title2">Total parcial:</string>
+    <!-- Tax title [CHAR LIMIT=20] -->
+    <string name="title3">Impuesto:</string>
+    <!-- Increase button [CHAR LIMIT=5] -->
+    <string name="increase">+</string>
+    <!-- Decrease button [CHAR LIMIT=5] -->
+    <string name="decrease">-</string>
+    <!-- Toppings title [CHAR LIMIT=20] -->
+    <string name="toppings">Ingredientes</string>
+    <!-- Whipped cream option [CHAR LIMIT=20] -->
+    <string name="option1">Crema batida</string>
+    <!-- Chocolate option [CHAR LIMIT=20] -->
+    <string name="option2">Chocolate</string>
+    <!-- Hint text display in the empty field for the user's name [CHAR LIMIT=20] -->
+    <string name="name">Nombre</string>
+    <!-- Chocolate price [CHAR LIMIT=20] -->
+    <string name="chocPrice">1,25 €/Taza</string>
+    <!-- Whipped cream price [CHAR LIMIT=20] -->
+    <string name="whipPrice">0,75 €/Taza</string>
+    <!-- Coffee price [CHAR LIMIT=20] -->
+    <string name="coffeePrice">2,50 €/Taza</string>
+
+    <!-- Java Strings -->
+    <!-- Whipped cream topping for the order summary. It will be shown in the format of "Add whipped cream? Yes" or "Add whipped cream? No". [CHAR LIMIT=NONE] -->
+    <string name="addWhip">Agregue la crema batida? <xliff:g id="cream" example="Yes">%s</xliff:g></string>
+    <!-- Chocolate topping for the order summary. It will be shown in the format of "Add chocolate? Yes" or "Add chocolate? No". [CHAR LIMIT=NONE] -->
+    <string name="addChoc">Agregue el chocolate? <xliff:g id="chocolate" example="Yes">%s</xliff:g></string>
+    <!-- Quantity of coffee cups for the order summary. It will be shown in the format of "Quantity: 2", where 2 is the number of cups ordered. [CHAR LIMIT=NONE] -->
+    <string name="orderQuant">Cantidad: <xliff:g id="quantity" example="2">%d</xliff:g></string>
+    <!-- Total price for the order summary. It will be shown in the format of "Total: $10" where $10 is the price. [CHAR LIMIT=NONE] -->
+    <string name="orderTot">Total: <xliff:g id="price" example="$10">%s</xliff:g></string>
+    <!-- Thank you message for the order summary. It will be shown in the format of "Thank you, Bob" where Bob is the user's name. [CHAR LIMIT=NONE] -->
+    <string name="thankYou">¡Gracias, <xliff:g id="customer" example="Bob">%s</xliff:g></string>
+    <!-- Exclamation point [CHAR LIMIT=5] -->
+    <string name="exclamation">!</string>
+    <!-- Topping yes [CHAR LIMIT=10] -->
+    <string name="yes">Sí</string>
+    <!-- Topping no [CHAR LIMIT=10] -->
+    <string name="no">No</string>
+    <!-- Subject line for the order summary email. It will be shown in the format of "Thank you, Bob" where Bob is the user's name. [CHAR LIMIT=NONE] -->
+    <string name="subject">Sólo java para <xliff:g id="customer" example="Bob">%s</xliff:g></string>
+    <!-- Maximum coffees [CHAR LIMIT=NONE] -->
+    <string name="max">100 cafés máximo.</string>
+    <!-- Minimum coffees [CHAR LIMIT=NONE] -->
+    <string name="min">Debe pedir al menos 1 taza de café.</string>
+</resources>

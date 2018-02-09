@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    tools:context="com.example.android.justjava.MainActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/coffeeImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:src="@drawable/coffee" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/coffeeImage"
+            android:layout_margin="@dimen/margin"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/name"
+                android:inputType="textPersonName|textCapWords" />
+
+            <TextView
+                style="@style/TitleTextView"
+                android:text="@string/toppings" />
+
+            <LinearLayout style="@style/ToppingsLayout">
+
+                <CheckBox
+                    android:id="@+id/check1"
+                    style="@style/CheckBox"
+                    android:text="@string/option1" />
+
+                <TextView
+                    android:text="@string/whipPrice"
+                    style="@style/CostPerCup" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/ToppingsLayout">
+
+                <CheckBox
+                    android:id="@+id/check2"
+                    style="@style/CheckBox"
+                    android:text="@string/option2" />
+
+                <TextView
+                    android:text="@string/chocPrice"
+                    style="@style/CostPerCup" />
+
+            </LinearLayout>
+
+            <TextView
+                style="@style/TitleTextView"
+                android:text="@string/title" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin4"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/button1"
+                    style="@style/Button"
+                    android:text="@string/decrease" />
+
+                <TextView
+                    android:id="@+id/quantity_text_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin2"
+                    android:layout_marginRight="@dimen/margin2"
+                    android:text="@string/quantity"
+                    android:textColor="@color/color"
+                    android:textSize="@dimen/titleSize" />
+
+                <Button
+                    android:id="@+id/button2"
+                    style="@style/Button"
+                    android:text="@string/increase" />
+
+                <TextView
+                    android:text="@string/coffeePrice"
+                    style="@style/CostPerCup" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin5">
+
+                <TextView
+                    style="@style/TitleTextView2"
+                    android:text="@string/title2" />
+
+                <TextView
+                    android:id="@+id/price_text_view"
+                    style="@style/PriceTextView" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    style="@style/TitleTextView2"
+                    android:text="@string/title3" />
+
+                <TextView
+                    android:id="@+id/tax_text_view"
+                    style="@style/PriceTextView" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/button3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="@dimen/margin"
+                android:layout_marginTop="@dimen/margin"
+                android:background="@color/buttonColor"
+                android:text="@string/order"
+                android:textSize="@dimen/titleSize" />
+
+        </LinearLayout>
+    </RelativeLayout>
+</ScrollView>

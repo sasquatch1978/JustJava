@@ -1,0 +1,70 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="TitleTextView">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">@dimen/margin</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textColor">@color/titleColor</item>
+        <item name="android:textSize">@dimen/titleSize</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TitleTextView2">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">@dimen/margin4</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textColor">@color/titleColor</item>
+        <item name="android:textSize">@dimen/titleSize</item>
+        <item name="android:textStyle">bold|italic</item>
+    </style>
+
+    <style name="PriceTextView">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">@dimen/margin4</item>
+        <item name="android:layout_marginLeft">@dimen/margin4</item>
+        <item name="android:textColor">@color/color</item>
+        <item name="android:textSize">@dimen/titleSize</item>
+    </style>
+
+    <style name="CheckBox">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingLeft">@dimen/margin3</item>
+        <item name="android:textColor">@color/color</item>
+        <item name="android:textSize">@dimen/titleSize</item>
+    </style>
+
+    <style name="Button">
+        <item name="android:layout_width">@dimen/button_size</item>
+        <item name="android:layout_height">@dimen/button_size</item>
+        <item name="android:background">@color/buttonColor</item>
+        <item name="android:textSize">@dimen/buttonText</item>
+    </style>
+
+    <style name="CostPerCup">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginRight">@dimen/margin6</item>
+        <item name="android:gravity">end</item>
+        <item name="android:textColor">@color/colorPrimaryDark</item>
+        <item name="android:textSize">@dimen/titleSize</item>
+    </style>
+
+    <style name="ToppingsLayout">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">@dimen/margin4</item>
+    </style>
+
+</resources>
