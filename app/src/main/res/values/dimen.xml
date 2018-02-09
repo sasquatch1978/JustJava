@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="button_size">48dp</dimen>
-    <dimen name="orderButton">100dp</dimen>
     <dimen name="margin">24dp</dimen>
     <dimen name="margin2">12dp</dimen>
-    <dimen name="margin3">24dp</dimen>
-    <dimen name="margin4">4dp</dimen>
-    <dimen name="margin5">12dp</dimen>
-    <dimen name="margin6">6dp</dimen>
-    <dimen name="margin7">16dp</dimen>
+    <dimen name="margin3">4dp</dimen>
+    <dimen name="margin4">6dp</dimen>
+    <dimen name="margin5">16dp</dimen>
+    <dimen name="buttonSize">48dp</dimen>
+    <dimen name="orderButton">100dp</dimen>
     <dimen name="buttonRadius">2dp</dimen>
     <dimen name="titleSize">16sp</dimen>
     <dimen name="buttonText">20sp</dimen>

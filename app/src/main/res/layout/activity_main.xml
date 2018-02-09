@@ -46,8 +46,8 @@
                     android:text="@string/option1" />
 
                 <TextView
-                    android:text="@string/whipPrice"
-                    style="@style/CostPerCup" />
+                    style="@style/CostPerCup"
+                    android:text="@string/whipPrice" />
             </LinearLayout>
 
             <LinearLayout style="@style/ToppingsLayout">
@@ -58,8 +58,8 @@
                     android:text="@string/option2" />
 
                 <TextView
-                    android:text="@string/chocPrice"
-                    style="@style/CostPerCup" />
+                    style="@style/CostPerCup"
+                    android:text="@string/chocPrice" />
 
             </LinearLayout>
 
@@ -70,8 +70,9 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin6"
-                android:layout_marginLeft="@dimen/margin4"
+                android:layout_marginLeft="@dimen/margin3"
+                android:layout_marginStart="@dimen/margin3"
+                android:layout_marginTop="@dimen/margin4"
                 android:orientation="horizontal">
 
                 <Button
@@ -95,15 +96,15 @@
                     android:text="@string/increase" />
 
                 <TextView
-                    android:text="@string/coffeePrice"
-                    style="@style/CostPerCup" />
+                    style="@style/CostPerCup"
+                    android:text="@string/coffeePrice" />
 
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin5">
+                android:layout_marginTop="@dimen/margin2">
 
                 <TextView
                     style="@style/TitleTextView2"
@@ -132,8 +133,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginBottom="@dimen/margin7"
-                android:layout_marginTop="@dimen/margin7"
+                android:layout_marginBottom="@dimen/margin5"
+                android:layout_marginTop="@dimen/margin5"
                 android:background="@drawable/order_button"
                 android:text="@string/order"
                 android:textSize="@dimen/titleSize" />

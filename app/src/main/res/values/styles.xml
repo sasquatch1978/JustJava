@@ -11,7 +11,7 @@
     <style name="TitleTextView">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_marginTop">@dimen/margin7</item>
+        <item name="android:layout_marginTop">@dimen/margin5</item>
         <item name="android:textAllCaps">true</item>
         <item name="android:gravity">center</item>
         <item name="android:textColor">@color/titleColor</item>
@@ -22,8 +22,8 @@
     <style name="TitleTextView2">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_marginTop">@dimen/margin4</item>
-        <item name="android:layout_marginLeft">@dimen/margin4</item>
+        <item name="android:layout_marginTop">@dimen/margin3</item>
+        <item name="android:layout_marginLeft">@dimen/margin3</item>
         <item name="android:textAllCaps">true</item>
         <item name="android:textColor">@color/titleColor</item>
         <item name="android:textSize">@dimen/titleSize</item>
@@ -33,8 +33,8 @@
     <style name="PriceTextView">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_marginTop">@dimen/margin4</item>
-        <item name="android:layout_marginLeft">@dimen/margin4</item>
+        <item name="android:layout_marginTop">@dimen/margin3</item>
+        <item name="android:layout_marginLeft">@dimen/margin3</item>
         <item name="android:textColor">@color/color</item>
         <item name="android:textSize">@dimen/titleSize</item>
     </style>
@@ -42,14 +42,14 @@
     <style name="CheckBox">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:paddingLeft">@dimen/margin3</item>
+        <item name="android:paddingLeft">@dimen/margin2</item>
         <item name="android:textColor">@color/color</item>
         <item name="android:textSize">@dimen/titleSize</item>
     </style>
 
     <style name="Button">
-        <item name="android:layout_width">@dimen/button_size</item>
-        <item name="android:layout_height">@dimen/button_size</item>
+        <item name="android:layout_width">@dimen/buttonSize</item>
+        <item name="android:layout_height">@dimen/buttonSize</item>
         <item name="android:background">@drawable/quantity_button</item>
         <item name="android:textSize">@dimen/buttonText</item>
 
@@ -58,7 +58,7 @@
     <style name="CostPerCup">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_marginRight">@dimen/margin6</item>
+        <item name="android:layout_marginRight">@dimen/margin4</item>
         <item name="android:gravity">end</item>
         <item name="android:textColor">@color/colorPrimaryDark</item>
         <item name="android:textSize">@dimen/titleSize</item>
@@ -67,7 +67,7 @@
     <style name="ToppingsLayout">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_marginTop">@dimen/margin4</item>
+        <item name="android:layout_marginTop">@dimen/margin3</item>
     </style>
 
 </resources>

@@ -35,15 +35,15 @@
 
     <!-- Java Strings -->
     <!-- Whipped cream topping for the order summary. It will be shown in the format of "Add whipped cream? Yes" or "Add whipped cream? No". [CHAR LIMIT=NONE] -->
-    <string name="addWhip">Agregue la crema batida? <xliff:g id="cream" example="Yes">%s</xliff:g></string>
+    <string name="addWhip">Agregue la crema batida? <xliff:g example="Yes" id="cream">%s</xliff:g></string>
     <!-- Chocolate topping for the order summary. It will be shown in the format of "Add chocolate? Yes" or "Add chocolate? No". [CHAR LIMIT=NONE] -->
-    <string name="addChoc">Agregue el chocolate? <xliff:g id="chocolate" example="Yes">%s</xliff:g></string>
+    <string name="addChoc">Agregue el chocolate? <xliff:g example="Yes" id="chocolate">%s</xliff:g></string>
     <!-- Quantity of coffee cups for the order summary. It will be shown in the format of "Quantity: 2", where 2 is the number of cups ordered. [CHAR LIMIT=NONE] -->
-    <string name="orderQuant">Cantidad: <xliff:g id="quantity" example="2">%d</xliff:g></string>
+    <string name="orderQuant">Cantidad: <xliff:g example="2" id="quantity">%d</xliff:g></string>
     <!-- Total price for the order summary. It will be shown in the format of "Total: $10" where $10 is the price. [CHAR LIMIT=NONE] -->
-    <string name="orderTot">Total: <xliff:g id="price" example="$10">%s</xliff:g></string>
+    <string name="orderTot">Total: <xliff:g example="$10" id="price">%s</xliff:g></string>
     <!-- Thank you message for the order summary. It will be shown in the format of "Thank you, Bob" where Bob is the user's name. [CHAR LIMIT=NONE] -->
-    <string name="thankYou">¡Gracias, <xliff:g id="customer" example="Bob">%s</xliff:g></string>
+    <string name="thankYou">¡Gracias, <xliff:g example="Bob" id="customer">%s</xliff:g></string>
     <!-- Exclamation point [CHAR LIMIT=5] -->
     <string name="exclamation">!</string>
     <!-- Topping yes [CHAR LIMIT=10] -->
@@ -51,7 +51,7 @@
     <!-- Topping no [CHAR LIMIT=10] -->
     <string name="no">No</string>
     <!-- Subject line for the order summary email. It will be shown in the format of "Thank you, Bob" where Bob is the user's name. [CHAR LIMIT=NONE] -->
-    <string name="subject">Sólo java para <xliff:g id="customer" example="Bob">%s</xliff:g></string>
+    <string name="subject">Sólo java para <xliff:g example="Bob" id="customer">%s</xliff:g></string>
     <!-- Maximum coffees [CHAR LIMIT=NONE] -->
     <string name="max">100 cafés máximo.</string>
     <!-- Minimum coffees [CHAR LIMIT=NONE] -->
