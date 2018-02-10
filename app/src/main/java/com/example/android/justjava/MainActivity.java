@@ -50,10 +50,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         name = (EditText) findViewById(R.id.name);
 
-        // Set the subtotal and tax fields with the proper currency. //
-        String dPrice = (NumberFormat.getCurrencyInstance().format(subPrice));
-        subtotal.setText(String.valueOf(dPrice));
-        tax.setText(String.valueOf(dPrice));
+        // Set the subtotal and tax fields with the proper currency, and set the initial price as $0 instead of $0.00. //
+        String dPrice = (NumberFormat.getCurrencyInstance().format(0));
+        String curPrice = dPrice.replaceAll("\\.00", "");
+        subtotal.setText(String.valueOf(curPrice));
+        tax.setText(String.valueOf(curPrice));
 
         // Create your checkboxes/buttons and set their onClickListener to "this". //
         option1 = (CheckBox) findViewById(R.id.check1);
@@ -109,6 +110,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         // Perform action on click //
         switch (v.getId()) {
+
             case R.id.check1:
                 // Updates price if whipped cream is selected or not after quantity. //
                 subPrice = quantity * basePrice;
