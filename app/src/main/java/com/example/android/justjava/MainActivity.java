@@ -17,7 +17,6 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import java.text.NumberFormat;
 
 /**
@@ -161,17 +160,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 // Don't allow an order of zero or without name entered.
                 if (quantity == 0 || customer.equals("")) {
-                    // Build the toast message so that the first line can be a different color and bold.
-                    String orderToast = getString(R.string.info);
-                    orderToast += "\n" + getString(R.string.minName);
-                    SpannableString infoToast = new SpannableString(orderToast);
-                    // Set the color.
-                    infoToast.setSpan(new ForegroundColorSpan(getResources().getColor(R.color.toastTitle)), 0, getString(R.string.info).length(), 0);
-                    // Set bold.
-                    infoToast.setSpan(new android.text.style.StyleSpan(android.graphics.Typeface.BOLD), 0, getString(R.string.info).length(), 0);
-                    // Display the string with the appropriate attributes.
-                    toastText.setText(infoToast);
-                    // The toast.
+                    // Display the toast with the appropriate attributes.
+                    toastText.setText(infoToast());
                     Toast toast = new Toast(this);
                     toast.setDuration(Toast.LENGTH_LONG);
                     toast.setGravity(Gravity.CENTER, 0, 420);
@@ -232,6 +222,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         // Update their TextViews.
         subtotal.setText(String.valueOf(NumberFormat.getCurrencyInstance().format(subPrice)));
         tax.setText(String.valueOf(NumberFormat.getCurrencyInstance().format(addTax)));
+    }
+
+    // Build a String so that the first line can be a different color and bold for a toast.
+    private SpannableString infoToast() {
+        String orderToast = getString(R.string.info);
+        orderToast += "\n" + getString(R.string.minName);
+        SpannableString infoToast = new SpannableString(orderToast);
+        // Set the color.
+        infoToast.setSpan(new ForegroundColorSpan(getResources().getColor(R.color.toastTitle)), 0, getString(R.string.info).length(), 0);
+        // Set bold.
+        infoToast.setSpan(new android.text.style.StyleSpan(android.graphics.Typeface.BOLD), 0, getString(R.string.info).length(), 0);
+        return infoToast;
     }
 
     /**
