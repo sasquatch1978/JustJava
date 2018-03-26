@@ -1,13 +1,16 @@
 package com.example.android.justjava;
 
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.SpannableString;
+import android.text.style.ForegroundColorSpan;
 import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -24,12 +27,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     int quantity = 0;
     double subPrice = 0, addTax = 0;
+    boolean isOpt1Checked, isOpt2Checked;
 
-    TextView total_cups, subtotal, tax;
-
+    TextView total_cups, subtotal, tax, toastText;
     CheckBox option1, option2;
-
     EditText name;
+    View layout;
 
     static String TOTAL_CUPS = "total_cups";
     static String SUBTOTAL = "subtotal";
@@ -40,152 +43,156 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // Hides the keyboard when app opens until it is needed. //
+        // Hides the keyboard when app opens until it is needed.
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 
-        // Identify the views. //
-        total_cups = (TextView) findViewById(R.id.quantity_text_view);
-        subtotal = (TextView) findViewById(R.id.price_text_view);
-        tax = (TextView) findViewById(R.id.tax_text_view);
+        // Identify the views.
+        total_cups = findViewById(R.id.quantityText);
+        subtotal = findViewById(R.id.priceText);
+        tax = findViewById(R.id.taxText);
+        name = findViewById(R.id.name);
 
-        name = (EditText) findViewById(R.id.name);
+        // Set the subtotal and tax fields with the proper currency, and set the initial price as $0 instead of $0.00.
+        zero();
 
-        // Set the subtotal and tax fields with the proper currency, and set the initial price as $0 instead of $0.00. //
-        String dPrice = (NumberFormat.getCurrencyInstance().format(0));
-        String curPrice = dPrice.replaceAll("\\.00", "");
-        subtotal.setText(String.valueOf(curPrice));
-        tax.setText(String.valueOf(curPrice));
-
-        // Create your checkboxes/buttons and set their onClickListener to "this". //
-        option1 = (CheckBox) findViewById(R.id.check1);
+        // Create your checkboxes/buttons and set their onClickListener to "this".
+        option1 = findViewById(R.id.whippedCream);
         option1.setOnClickListener(this);
-        option2 = (CheckBox) findViewById(R.id.check2);
+        option2 = findViewById(R.id.chocolate);
         option2.setOnClickListener(this);
 
-        Button decrease = (Button) findViewById(R.id.button1);
+        Button decrease = findViewById(R.id.decrease);
         decrease.setOnClickListener(this);
-        Button increase = (Button) findViewById(R.id.button2);
+        Button increase = findViewById(R.id.increase);
         increase.setOnClickListener(this);
-        Button submit_order = (Button) findViewById(R.id.button3);
+        Button submit_order = findViewById(R.id.order);
         submit_order.setOnClickListener(this);
+
+        // Custom Toast
+        LayoutInflater inflater = getLayoutInflater();
+        layout = inflater.inflate(R.layout.toast, (ViewGroup) findViewById(R.id.toast_layout_root));
+        toastText = layout.findViewById(R.id.toastText);
     }
 
     @Override
     protected void onSaveInstanceState(Bundle savedInstanceState) {
-        // Save custom values into the bundle. //
+        // Save custom values into the bundle.
         savedInstanceState.putInt(TOTAL_CUPS, quantity);
         savedInstanceState.putDouble(SUBTOTAL, subPrice);
         savedInstanceState.putDouble(TAX, addTax);
-        // Always call the superclass so it can save the view hierarchy state. //
+        // Always call the superclass so it can save the view hierarchy state.
         super.onSaveInstanceState(savedInstanceState);
     }
 
     @Override
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
-        // Always call the superclass so it can restore the view hierarchy. //
+        // Always call the superclass so it can restore the view hierarchy.
         super.onRestoreInstanceState(savedInstanceState);
-        // Restore state members from saved instance. //
+        // Restore state members from saved instance.
         quantity = savedInstanceState.getInt(TOTAL_CUPS);
         subPrice = savedInstanceState.getDouble(SUBTOTAL);
         addTax = savedInstanceState.getDouble(TAX);
-        // Display the saved values. //
+        // Display the saved values.
         total_cups.setText(String.valueOf(quantity));
         subtotal.setText(String.valueOf(NumberFormat.getCurrencyInstance().format(subPrice)));
         tax.setText(String.valueOf(NumberFormat.getCurrencyInstance().format(addTax)));
     }
 
-    @SuppressLint("StringFormatInvalid")
     public void onClick(View v) {
-        boolean isOpt1Checked = option1.isChecked();
-        boolean isOpt2Checked = option2.isChecked();
-
-        // Price for 1 cup of coffee. //
-        double basePrice = 2.50;
-
-        // If whipped cream is checked. //
-        if (isOpt1Checked) basePrice = basePrice + .75;
-
-        // If chocolate is checked. //
-        if (isOpt2Checked) basePrice = basePrice + 1.25;
-
-        // Perform action on click //
+        // Perform action on click.
         switch (v.getId()) {
-
-            case R.id.check1:
-                // Updates price if whipped cream is selected or not after quantity. //
-                subPrice = quantity * basePrice;
-                addTax = subPrice * .0725;
-                subtotal.setText(String.valueOf(NumberFormat.getCurrencyInstance().format(subPrice)));
-                tax.setText(String.valueOf(NumberFormat.getCurrencyInstance().format(addTax)));
+            case R.id.whippedCream:
+            case R.id.chocolate:
+                // Updates price if toppings are selected or not after quantity.
+                // Set the price as as $0 instead of $0.00 if quantity is zero.
+                if (quantity < 1) zero();
+                // Set the price normally, example $2.50.
+                else price();
                 break;
 
-            case R.id.check2:
-                // Updates price if chocolate is selected or not after quantity. //
-                subPrice = quantity * basePrice;
-                addTax = subPrice * .0725;
-                subtotal.setText(String.valueOf(NumberFormat.getCurrencyInstance().format(subPrice)));
-                tax.setText(String.valueOf(NumberFormat.getCurrencyInstance().format(addTax)));
-                break;
-
-            case R.id.button1:
-                // Don't allow to go below 0. //
+            case R.id.decrease:
+                // Don't allow quantity to go below zero.
                 if (quantity == 0) {
                     // Display message. //
-                    Toast toast = Toast.makeText(this, R.string.min, Toast.LENGTH_SHORT);
+                    toastText.setText(R.string.min);
+                    Toast toast = new Toast(this);
+                    toast.setDuration(Toast.LENGTH_SHORT);
                     toast.setGravity(Gravity.CENTER, 0, 420);
+                    toast.setView(layout);
                     toast.show();
-                    // Exit method early. //
+                    // Exit method early.
                     return;
                 }
 
-                // Decrease quantity //
-                quantity = quantity - 1;
-                subPrice = quantity * basePrice;
-                addTax = subPrice * .0725;
+                // Decrease quantity
+                quantity -= 1;
                 total_cups.setText(String.valueOf(quantity));
-                subtotal.setText(String.valueOf(NumberFormat.getCurrencyInstance().format(subPrice)));
-                tax.setText(String.valueOf(NumberFormat.getCurrencyInstance().format(addTax)));
+                // Update price if quantity decreases.
+                // Set the price as as $0 instead of $0.00 if quantity drops to zero.
+                if (quantity < 1) zero();
+                // Set the price normally, example $2.50.
+                else price();
                 break;
 
-            case R.id.button2:
-                // Don't allow to go above 100. //
+            case R.id.increase:
+                // Don't allow quantity to go above 100.
                 if (quantity == 100) {
-                    // Display message. //
-                    Toast toast = Toast.makeText(this, R.string.max, Toast.LENGTH_SHORT);
+                    // Display message.
+                    toastText.setText(R.string.max);
+                    Toast toast = new Toast(this);
+                    toast.setDuration(Toast.LENGTH_SHORT);
                     toast.setGravity(Gravity.CENTER, 0, 420);
+                    toast.setView(layout);
                     toast.show();
-                    // Exit method early. //
+                    // Exit method early.
                     return;
                 }
 
-                // Increase quantity //
-                quantity = quantity + 1;
-                subPrice = quantity * basePrice;
-                addTax = subPrice * .0725;
+                // Increase quantity
+                quantity += 1;
                 total_cups.setText(String.valueOf(quantity));
-                subtotal.setText(String.valueOf(NumberFormat.getCurrencyInstance().format(subPrice)));
-                tax.setText(String.valueOf(NumberFormat.getCurrencyInstance().format(addTax)));
+                // Update price if quantity increases.
+                price();
                 break;
 
-            case R.id.button3:
-                // Don't allow an order of 0. //
-                if (quantity == 0) {
-                    // Display message. //
-                    Toast toast = Toast.makeText(this, R.string.min, Toast.LENGTH_SHORT);
-                    toast.setGravity(Gravity.CENTER, 0, 420);
-                    toast.show();
-                    // Exit method early. //
-                    return;
-                }
-
-                // Submit Order //
+            case R.id.order:
+                // Submit Order
                 String customer = name.getText().toString();
 
-                // Calculate the price //
-                subPrice = calculatePrice(isOpt1Checked, isOpt2Checked);
-                String message = createOrderSummary(subPrice, customer, isOpt1Checked, isOpt2Checked);
+                // Don't allow an order of zero or without name entered.
+                if (quantity == 0 || customer.equals("")) {
+                    // Display message.
+                    /*
+                      Set color and bold on first line of the toast.
+                      TODO: Figure out a better way, this is awful for localization, because of its fixed endpoint.
+                      TODO: Tried this: <string name="info"><font fgcolor="#F8C98F"><b>Please fill in all information:</b></font>\nYou must enter a name.\nYou must order at least 1 cup of coffee.</string>
+                      TODO: But when that was tried in strings.xml, I couldn't get it to work without hardcoding the color resource, so not a "best practice" but was great for localization.
+                     */
+                    toastText.setText("");
+                    // Get the string from resources.
+                    String info = getString(R.string.info);
+                    SpannableString infoToast = new SpannableString(info);
+                    // Set the color.
+                    infoToast.setSpan(new ForegroundColorSpan(getResources().getColor(R.color.toastTitle)), 0, 31, 0);
+                    // Set bold.
+                    infoToast.setSpan(new android.text.style.StyleSpan(android.graphics.Typeface.BOLD), 0, 31, 0);
+                    // Display the string with the appropriate attributes.
+                    toastText.setText(infoToast);
+                    // The toast.
+                    Toast toast = new Toast(this);
+                    toast.setDuration(Toast.LENGTH_LONG);
+                    toast.setGravity(Gravity.CENTER, 0, 420);
+                    toast.setView(layout);
+                    toast.show();
+                    // Exit method early.
+                    return;
+                }
 
-                // Compose the order summary email. //
+                // Calculate the price
+                double totalPrice = subPrice + addTax;
+                String message = createOrderSummary(totalPrice, customer);
+
+                // Compose the order summary email.
                 Intent intent = new Intent(Intent.ACTION_SENDTO);
                 intent.setData(Uri.parse("mailto:")); // only email apps should handle this
                 intent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.subject, customer));
@@ -200,40 +207,48 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-    /**
-     * Calculates the price of the order.
-     *
-     * @param isOpt1Checked add whipped cream
-     * @param isOpt2Checked add chocolate
-     * @return total price
+    /*
+      Set the subtotal and tax fields with the proper currency, and set the price as $0 instead of $0.00.
+      TODO: Figure out a better way, this doesn't work with localization, if changed to "\\,00" works for euros, but need to get it to work no matter what the currency is.
      */
-    private double calculatePrice(boolean isOpt1Checked, boolean isOpt2Checked) {
-        // Price for 1 cup of coffee. //
+    public void zero() {
+        String dPrice = (NumberFormat.getCurrencyInstance().format(0));
+        String curPrice = dPrice.replaceAll("\\.00", "");
+        subtotal.setText(String.valueOf(curPrice));
+        tax.setText(String.valueOf(curPrice));
+    }
+
+    // Calculate subtotal and tax, based on quantity and if toppings are selected.
+    public void price() {
+        isOpt1Checked = option1.isChecked();
+        isOpt2Checked = option2.isChecked();
+
+        // Price for 1 cup of coffee.
         double basePrice = 2.50;
 
-        // If whipped cream is checked. //
-        if (isOpt1Checked) basePrice = basePrice + .75;
+        // If whipped cream is checked.
+        if (isOpt1Checked) basePrice += .75;
 
-        // If chocolate is checked. //
-        if (isOpt2Checked) basePrice = basePrice + 1.25;
+        // If chocolate is checked.
+        if (isOpt2Checked) basePrice += 1.25;
 
-        // Calculate the price. //
+        // Calculate price
         subPrice = quantity * basePrice;
         addTax = subPrice * .0725;
-        return subPrice + addTax;
+
+        // Update their TextViews.
+        subtotal.setText(String.valueOf(NumberFormat.getCurrencyInstance().format(subPrice)));
+        tax.setText(String.valueOf(NumberFormat.getCurrencyInstance().format(addTax)));
     }
 
     /**
      * Create summary of the order.
      *
-     * @param customer      name
-     * @param price         of the order
-     * @param isOpt1Checked is whether or not to add whipped cream to the coffee
-     * @param isOpt2Checked is whether or not to add chocolate to the coffee
+     * @param customer   name
+     * @param totalPrice of the order
      * @return text summary
      */
-    @SuppressLint("StringFormatInvalid")
-    private String createOrderSummary(double price, String customer, boolean isOpt1Checked, boolean isOpt2Checked) {
+    private String createOrderSummary(double totalPrice, String customer) {
         String cream;
         if (isOpt1Checked) cream = getString(R.string.yes);
         else cream = getString(R.string.no);
@@ -245,8 +260,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         String orderMessage = getString(R.string.addWhip, cream);
         orderMessage += "\n" + getString(R.string.addChoc, chocolate);
         orderMessage += "\n" + getString(R.string.orderQuant, quantity);
-        orderMessage += "\n" + getString(R.string.orderTot, NumberFormat.getCurrencyInstance().format(price));
-        orderMessage += "\n" + getString(R.string.thankYou, customer) + getString(R.string.exclamation);
+        orderMessage += "\n" + getString(R.string.orderTot, NumberFormat.getCurrencyInstance().format(totalPrice));
+        orderMessage += "\n" + getString(R.string.thankYou, customer);
         return orderMessage;
     }
 }

@@ -5,6 +5,9 @@
     <color name="colorAccent">#BCAAA4</color>
     <color name="color">#000000</color>
     <color name="titleColor">#4B2C20</color>
-    <color name="priceColor">#1B5E20</color>
     <color name="buttonColor">#E2C1B5</color>
+    <color name="toastBorderColor">#767B85</color>
+    <color name="toastBackground">#7C848F</color>
+    <color name="toastText">#EFF0F2</color>
+    <color name="toastTitle">#F8C98F</color>
 </resources>

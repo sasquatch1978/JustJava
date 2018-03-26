@@ -54,6 +54,8 @@
     <string name="subject">Sólo java para <xliff:g example="Bob" id="customer">%s</xliff:g></string>
     <!-- Maximum coffees [CHAR LIMIT=NONE] -->
     <string name="max">100 cafés máximo.</string>
+    <!-- User name and minimum coffees [CHAR LIMIT=NONE] -->
+    <string name="info">Por favor llene toda la información:\nDebes ingresar un nombre.\nDebes pedir al menos 1 taza de café.</string>
     <!-- Minimum coffees [CHAR LIMIT=NONE] -->
     <string name="min">Debe pedir al menos 1 taza de café.</string>
 </resources>

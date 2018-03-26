@@ -32,6 +32,8 @@
     <string name="whipPrice">$0.75</string>
     <!-- Coffee price [CHAR LIMIT=20] -->
     <string name="coffeePrice">$2.50</string>
+    <!-- Filler text for custom toast, to make editing easier. [CHAR LIMIT=20] -->
+    <string name="fillerText">This is filler text.</string>
 
     <!-- Java Strings-->
     <!-- Whipped cream topping for the order summary. It will be shown in the format of "Add whipped cream? Yes" or "Add whipped cream? No". [CHAR LIMIT=NONE] -->
@@ -43,17 +45,17 @@
     <!-- Total price for the order summary. It will be shown in the format of "Total: $10" where $10 is the price. [CHAR LIMIT=NONE] -->
     <string name="orderTot">Total: <xliff:g example="$10" id="price">%s</xliff:g></string>
     <!-- Thank you message for the order summary. It will be shown in the format of "Thank you, Bob" where Bob is the user's name. [CHAR LIMIT=NONE] -->
-    <string name="thankYou">Thank You, <xliff:g example="Bob" id="customer">%s</xliff:g></string>
-    <!-- Exclamation point [CHAR LIMIT=5] -->
-    <string name="exclamation">!</string>
+    <string name="thankYou">Thank You, <xliff:g example="Bob" id="customer">%s</xliff:g>!</string>
     <!-- Topping yes [CHAR LIMIT=10] -->
     <string name="yes">Yes</string>
     <!-- Topping no [CHAR LIMIT=10] -->
     <string name="no">No</string>
-    <!-- Subject line for the order summary email. It will be shown in the format of "Thank you, Bob" where Bob is the user's name. [CHAR LIMIT=NONE] -->
+    <!-- Subject line for the order summary email. It will be shown in the format of "Just Java Order Bob" where Bob is the user's name. [CHAR LIMIT=NONE] -->
     <string name="subject">Just Java Order For <xliff:g example="Bob" id="customer">%s</xliff:g></string>
     <!-- Maximum coffees [CHAR LIMIT=NONE] -->
     <string name="max">100 coffees maximum.</string>
+    <!-- User name and minimum coffees [CHAR LIMIT=NONE] -->
+    <string name="info">Please fill in all information:\nYou must enter a name.\nYou must order at least 1 cup of coffee.</string>
     <!-- Minimum coffees [CHAR LIMIT=NONE] -->
     <string name="min">You must order at least 1 cup of coffee.</string>
 </resources>
