@@ -161,21 +161,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 // Don't allow an order of zero or without name entered.
                 if (quantity == 0 || customer.equals("")) {
-                    // Display message.
-                    /*
-                      Set color and bold on first line of the toast.
-                      TODO: Figure out a better way, this is awful for localization, because of its fixed endpoint.
-                      TODO: Tried this: <string name="info"><font fgcolor="#F8C98F"><b>Please fill in all information:</b></font>\nYou must enter a name.\nYou must order at least 1 cup of coffee.</string>
-                      TODO: But when that was tried in strings.xml, I couldn't get it to work without hardcoding the color resource, so not a "best practice" but was great for localization.
-                     */
-                    toastText.setText("");
-                    // Get the string from resources.
-                    String info = getString(R.string.info);
-                    SpannableString infoToast = new SpannableString(info);
+                    // Build the toast message so that the first line can be a different color and bold.
+                    String orderToast = getString(R.string.info);
+                    orderToast += "\n" + getString(R.string.minName);
+                    SpannableString infoToast = new SpannableString(orderToast);
                     // Set the color.
-                    infoToast.setSpan(new ForegroundColorSpan(getResources().getColor(R.color.toastTitle)), 0, 31, 0);
+                    infoToast.setSpan(new ForegroundColorSpan(getResources().getColor(R.color.toastTitle)), 0, getString(R.string.info).length(), 0);
                     // Set bold.
-                    infoToast.setSpan(new android.text.style.StyleSpan(android.graphics.Typeface.BOLD), 0, 31, 0);
+                    infoToast.setSpan(new android.text.style.StyleSpan(android.graphics.Typeface.BOLD), 0, getString(R.string.info).length(), 0);
                     // Display the string with the appropriate attributes.
                     toastText.setText(infoToast);
                     // The toast.

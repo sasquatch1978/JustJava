@@ -54,8 +54,10 @@
     <string name="subject">Just Java Order For <xliff:g example="Bob" id="customer">%s</xliff:g></string>
     <!-- Maximum coffees [CHAR LIMIT=NONE] -->
     <string name="max">100 coffees maximum.</string>
-    <!-- User name and minimum coffees [CHAR LIMIT=NONE] -->
-    <string name="info">Please fill in all information:\nYou must enter a name.\nYou must order at least 1 cup of coffee.</string>
+    <!-- User name and minimum coffees toast title. [CHAR LIMIT=NONE] -->
+    <string name="info">Please fill in all information:</string>
+    <!-- User name and minimum coffees toast body. [CHAR LIMIT=NONE] -->
+    <string name="minName">You must enter a name.\nYou must order at least 1 cup of coffee.</string>
     <!-- Minimum coffees [CHAR LIMIT=NONE] -->
     <string name="min">You must order at least 1 cup of coffee.</string>
 </resources>
