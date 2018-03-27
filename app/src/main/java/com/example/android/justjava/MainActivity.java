@@ -190,10 +190,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-    /*
-      Set the subtotal and tax fields with the proper currency, and set the price as $0 instead of $0.00.
-      TODO: Figure out a better way, this doesn't work with localization, if changed to "\\,00" works for euros, but need to get it to work no matter what the currency is.
-     */
+    // Set the subtotal and tax fields with the proper currency, and set the price as $0 instead of $0.00.
     public void zero() {
         String dPrice = (NumberFormat.getCurrencyInstance().format(0));
         String curPrice = dPrice.replaceAll("\\.00", "");
