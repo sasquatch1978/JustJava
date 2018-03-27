@@ -45,32 +45,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         // Hides the keyboard when app opens until it is needed.
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 
-        // Identify the views.
-        total_cups = findViewById(R.id.quantityText);
-        subtotal = findViewById(R.id.priceText);
-        tax = findViewById(R.id.taxText);
-        name = findViewById(R.id.name);
+        // Identify all views and set their listeners.
+        initializeViews();
 
         // Set the subtotal and tax fields with the proper currency, and set the initial price as $0 instead of $0.00.
-        zero();
-
-        // Create your checkboxes/buttons and set their onClickListener to "this".
-        option1 = findViewById(R.id.whippedCream);
-        option1.setOnClickListener(this);
-        option2 = findViewById(R.id.chocolate);
-        option2.setOnClickListener(this);
-
-        Button decrease = findViewById(R.id.decrease);
-        decrease.setOnClickListener(this);
-        Button increase = findViewById(R.id.increase);
-        increase.setOnClickListener(this);
-        Button submit_order = findViewById(R.id.order);
-        submit_order.setOnClickListener(this);
-
-        // Custom Toast
-        LayoutInflater inflater = getLayoutInflater();
-        layout = inflater.inflate(R.layout.toast, (ViewGroup) findViewById(R.id.toast_layout_root));
-        toastText = layout.findViewById(R.id.toastText);
+        setPriceToZero();
     }
 
     @Override
@@ -104,9 +83,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.chocolate:
                 // Updates price if toppings are selected or not after quantity.
                 // Set the price as as $0 instead of $0.00 if quantity is zero.
-                if (quantity < 1) zero();
+                if (quantity < 1) setPriceToZero();
                 // Set the price normally, example $2.50.
-                else price();
+                else setPrice();
                 break;
 
             case R.id.decrease:
@@ -128,9 +107,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 total_cups.setText(String.valueOf(quantity));
                 // Update price if quantity decreases.
                 // Set the price as as $0 instead of $0.00 if quantity drops to zero.
-                if (quantity < 1) zero();
+                if (quantity < 1) setPriceToZero();
                 // Set the price normally, example $2.50.
-                else price();
+                else setPrice();
                 break;
 
             case R.id.increase:
@@ -151,7 +130,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 quantity += 1;
                 total_cups.setText(String.valueOf(quantity));
                 // Update price if quantity increases.
-                price();
+                setPrice();
                 break;
 
             case R.id.order:
@@ -190,8 +169,37 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
+    // Identify all views and set their listeners.
+    public void initializeViews() {
+        // Customer EditText
+        name = findViewById(R.id.name);
+
+        // TextViews
+        total_cups = findViewById(R.id.quantityText);
+        subtotal = findViewById(R.id.priceText);
+        tax = findViewById(R.id.taxText);
+
+        // Create your checkboxes/buttons and set their onClickListener to "this".
+        option1 = findViewById(R.id.whippedCream);
+        option1.setOnClickListener(this);
+        option2 = findViewById(R.id.chocolate);
+        option2.setOnClickListener(this);
+
+        Button decrease = findViewById(R.id.decrease);
+        decrease.setOnClickListener(this);
+        Button increase = findViewById(R.id.increase);
+        increase.setOnClickListener(this);
+        Button submit_order = findViewById(R.id.order);
+        submit_order.setOnClickListener(this);
+
+        // Custom Toast
+        LayoutInflater inflater = getLayoutInflater();
+        layout = inflater.inflate(R.layout.toast, (ViewGroup) findViewById(R.id.toast_layout_root));
+        toastText = layout.findViewById(R.id.toastText);
+    }
+
     // Set the subtotal and tax fields with the proper currency, and set the price as $0 instead of $0.00.
-    public void zero() {
+    public void setPriceToZero() {
         String dPrice = (NumberFormat.getCurrencyInstance().format(0));
         String curPrice = dPrice.replaceAll("\\.00", "");
         subtotal.setText(String.valueOf(curPrice));
@@ -199,7 +207,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     // Calculate subtotal and tax, based on quantity and if toppings are selected.
-    public void price() {
+    public void setPrice() {
         isOpt1Checked = option1.isChecked();
         isOpt2Checked = option2.isChecked();
 
