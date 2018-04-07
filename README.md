@@ -9,7 +9,7 @@ Selection is made:
 
 Landscape:
 
-![landscapejava](https://user-images.githubusercontent.com/34224374/38450454-06c6c044-39ec-11e8-849b-e25c0f26f9df.png)
+![landscapejava](https://user-images.githubusercontent.com/34224374/38450568-29f65488-39ee-11e8-9a1a-4f0048f34f7b.png)
 
 Order summary:
 
