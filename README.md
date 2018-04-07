@@ -1,4 +1,6 @@
 # JustJava
+This is a coffee ordering app made in Android Studio for a course at Udacity.
+
 Toast if no name is entered or quantity is zero when order button is pressed:
 
 ![toast_message_no_selection](https://user-images.githubusercontent.com/34224374/37907060-04d4bd90-30d2-11e8-85ce-37e02e3aee47.png)
