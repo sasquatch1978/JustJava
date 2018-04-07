@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    tools:context="com.example.android.justjava.MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/sideMargin"
+        android:baselineAligned="false">
+
+        <LinearLayout
+            android:layout_width="@dimen/layoutSize"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:src="@drawable/coffee" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/customerMargin"
+                android:text="@string/customer"
+                android:textAllCaps="true"
+                android:textColor="@color/titleColor"
+                android:textSize="@dimen/titleSize"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/name"
+                android:inputType="textPersonName|textCapWords" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="@dimen/layoutSize"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/sideMargin"
+            android:layout_marginStart="@dimen/sideMargin"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/toppings"
+                android:textAllCaps="true"
+                android:textColor="@color/titleColor"
+                android:textSize="@dimen/titleSize"
+                android:textStyle="bold" />
+
+            <LinearLayout style="@style/ToppingsLayout">
+
+                <CheckBox
+                    android:id="@+id/whippedCream"
+                    style="@style/CheckBox"
+                    android:text="@string/option1" />
+
+                <TextView
+                    style="@style/CostPerCup"
+                    android:text="@string/whipPrice" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/ToppingsLayout">
+
+                <CheckBox
+                    android:id="@+id/chocolate"
+                    style="@style/CheckBox"
+                    android:text="@string/option2" />
+
+                <TextView
+                    style="@style/CostPerCup"
+                    android:text="@string/chocPrice" />
+
+            </LinearLayout>
+
+            <TextView
+                style="@style/TitleTextView"
+                android:text="@string/title" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/titleMargin"
+                android:layout_marginStart="@dimen/titleMargin"
+                android:layout_marginTop="@dimen/coffeeMargin"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/decrease"
+                    style="@style/Button"
+                    android:text="@string/decrease" />
+
+                <TextView
+                    android:id="@+id/quantityText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/quantityMargin"
+                    android:layout_marginRight="@dimen/quantityMargin"
+                    android:text="@string/quantity"
+                    android:textColor="@color/color"
+                    android:textSize="@dimen/titleSize" />
+
+                <Button
+                    android:id="@+id/increase"
+                    style="@style/Button"
+                    android:text="@string/increase" />
+
+                <TextView
+                    style="@style/CostPerCup"
+                    android:text="@string/coffeePrice" />
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:id="@+id/subtotalLayout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/quantityMargin">
+
+                    <TextView
+                        style="@style/TitleTextView2"
+                        android:text="@string/title2" />
+
+                    <TextView
+                        android:id="@+id/priceText"
+                        style="@style/PriceTextView" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/subtotalLayout">
+
+                    <TextView
+                        style="@style/TitleTextView2"
+                        android:text="@string/title3" />
+
+                    <TextView
+                        android:id="@+id/taxText"
+                        style="@style/PriceTextView" />
+
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/order"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="@dimen/buttonMargin"
+                    android:background="@drawable/order_button"
+                    android:text="@string/order"
+                    android:textSize="@dimen/titleSize" />
+
+            </RelativeLayout>
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

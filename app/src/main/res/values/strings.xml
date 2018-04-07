@@ -24,7 +24,9 @@
     <string name="option1">Whipped cream</string>
     <!-- Chocolate option [CHAR LIMIT=20] -->
     <string name="option2">Chocolate</string>
-    <!-- Hint text display in the empty field for the user's name [CHAR LIMIT=20] -->
+    <!-- Customer title in landscape. [CHAR LIMIT=20] -->
+    <string name="customer">Customer:</string>
+    <!-- Hint text display in the empty field for the user's name. [CHAR LIMIT=20] -->
     <string name="name">Name</string>
     <!-- Chocolate price [CHAR LIMIT=20] -->
     <string name="chocPrice">$1.25</string>

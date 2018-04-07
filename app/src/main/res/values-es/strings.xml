@@ -24,6 +24,8 @@
     <string name="option1">Crema batida</string>
     <!-- Chocolate option [CHAR LIMIT=20] -->
     <string name="option2">Chocolate</string>
+    <!-- Customer title in landscape. [CHAR LIMIT=20] -->
+    <string name="customer">Cliente:</string>
     <!-- Hint text display in the empty field for the user's name [CHAR LIMIT=20] -->
     <string name="name">Nombre</string>
     <!-- Chocolate price [CHAR LIMIT=20] -->
@@ -44,8 +46,6 @@
     <string name="orderTot">Total: <xliff:g example="$10" id="price">%s</xliff:g></string>
     <!-- Thank you message for the order summary. It will be shown in the format of "Thank you, Bob" where Bob is the user's name. [CHAR LIMIT=NONE] -->
     <string name="thankYou">¡Gracias, <xliff:g example="Bob" id="customer">%s</xliff:g></string>
-    <!-- Exclamation point [CHAR LIMIT=5] -->
-    <string name="exclamation">!</string>
     <!-- Topping yes [CHAR LIMIT=10] -->
     <string name="yes">Sí</string>
     <!-- Topping no [CHAR LIMIT=10] -->

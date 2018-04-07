@@ -79,9 +79,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         // Perform action on click.
         switch (v.getId()) {
+            // Updates price if toppings are selected or not after quantity.
             case R.id.whippedCream:
             case R.id.chocolate:
-                // Updates price if toppings are selected or not after quantity.
                 // Set the price as as $0 instead of $0.00 if quantity is zero.
                 if (quantity < 1) setPriceToZero();
                 // Set the price normally, example $2.50.
@@ -91,14 +91,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.decrease:
                 // Don't allow quantity to go below zero.
                 if (quantity == 0) {
-                    // Display message. //
                     toastText.setText(R.string.min);
                     Toast toast = new Toast(this);
                     toast.setDuration(Toast.LENGTH_SHORT);
                     toast.setGravity(Gravity.CENTER, 0, 420);
                     toast.setView(layout);
                     toast.show();
-                    // Exit method early.
                     return;
                 }
 
@@ -115,14 +113,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.increase:
                 // Don't allow quantity to go above 100.
                 if (quantity == 100) {
-                    // Display message.
                     toastText.setText(R.string.max);
                     Toast toast = new Toast(this);
                     toast.setDuration(Toast.LENGTH_SHORT);
                     toast.setGravity(Gravity.CENTER, 0, 420);
                     toast.setView(layout);
                     toast.show();
-                    // Exit method early.
                     return;
                 }
 
@@ -146,7 +142,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     toast.setGravity(Gravity.CENTER, 0, 420);
                     toast.setView(layout);
                     toast.show();
-                    // Exit method early.
                     return;
                 }
 
