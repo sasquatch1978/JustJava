@@ -11,6 +11,10 @@ Landscape:
 
 ![landscapejava](https://user-images.githubusercontent.com/34224374/38450568-29f65488-39ee-11e8-9a1a-4f0048f34f7b.png)
 
+Spanish:
+
+![spanish](https://user-images.githubusercontent.com/34224374/38450574-5bf1fbea-39ee-11e8-92e7-d0ad7c1ed499.png)
+
 Order summary:
 
 ![order_summary](https://user-images.githubusercontent.com/34224374/37907288-a163258e-30d2-11e8-801a-a4e9cc2552a0.png)
